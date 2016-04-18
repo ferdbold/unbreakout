@@ -41,8 +41,8 @@ void setup() {
   createBricks();
   createBalls();
   paddles = new Paddle[] {
-    new Paddle(),
     new ReversePaddle(),
+    new HorizontalPaddle(),
     new VerticalPaddle()
   };
 
