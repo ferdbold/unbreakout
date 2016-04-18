@@ -1,25 +1,23 @@
 // Breakout // // 28/02/2007
 // Steph Thirion - Game Mod workshop: < http://trsp.net/teaching/gamemod >
-// 
+//
 // english version :)
 // made with Processing 0124 Beta
-
 
 Rectangle gameFrame;
 Brick[] bricks;
 Paddle paddle;
 Ball[] balls;
-//
-//
+
 int frameNum = 0;
-//
+
 // SCREEN PROPERTIES --
 int displayWidth = 400;
 int displayHeight = 400;
 color backgroundColor = #303030;
 boolean backgroundRefreshes = false;
-// 
-// GAME FRAME PROPERTIES --
+
+// GAME FRAME PROPERTIES
 int gameFrameWidth = 300;
 int gameFrameHeight = 300;
 color gameFrameStroke = #FFFFFF;
@@ -27,21 +25,16 @@ boolean gameFrameHasStroke = false;
 color gameFrameFill = #000000;
 int opacityOfRefresh = 255;
 boolean gameFrameRefreshes = true;
-// 
-//
+
 int recX = (displayWidth-gameFrameWidth)/2;
 int recY = (displayHeight-gameFrameHeight)/2;
-//
-
-
-
 
 // SETUP FUNCTION --
 void setup() {
   size(displayWidth,displayHeight,P3D);
   background(backgroundColor);
   frameRate(60);
-  //
+
   // create objects
   gameFrame = new Rectangle(gameFrameWidth, gameFrameHeight, gameFrameHasStroke, gameFrameStroke, true, gameFrameFill);
   gameFrame.opacity = opacityOfRefresh;
@@ -52,39 +45,24 @@ void setup() {
   refreshScreen();
 }
 
-
-
-
-
 // DRAW FUNCTION --
 void draw() {
   refreshScreen();
-  //
-  //
-  //
-  saveScreenshots();  
+
+  saveScreenshots();
 }
-
-
-
-
-
 
 void createBalls(){
   // BALL(S) PROPERTIES --
   int numberOfBalls = 1;
   int yBalls = 150;
-  //
+
   balls = new Ball[numberOfBalls];
   for (int i=0; i<numberOfBalls; i++){
     int x = i*20;
     balls[i] = new Ball(x, yBalls);
   }
 }
-
-
-
-
 
 void createBricks(){
   // BRICK GROUP PROPERTIES --
@@ -96,7 +74,7 @@ void createBricks(){
   color brickStroke = #ffffff;
   boolean brickHasFill = true;
   color brickFill = #ff0000;
-  int yBricks = 50; 
+  int yBricks = 50;
   color[] rowsColors = {#ff00ff, #ff0000, #ff9900, #ffff00, #00ff00, #00ffff};
   //
   //
@@ -116,12 +94,6 @@ void createBricks(){
   }
 }
 
-
-
-
-
-
-
 void refreshScreen() {
   // BACKGROUND
   if(backgroundRefreshes){
@@ -133,7 +105,7 @@ void refreshScreen() {
   }
   // PADDLE
   paddle.refresh();
-  //
+
   // BRICKS
   for (int i=0; i<bricks.length; i++){
     bricks[i].refresh();
@@ -144,24 +116,19 @@ void refreshScreen() {
   }
 }
 
-
-
-
 // be careful with this function - only change if you know what you're doing
 // the hard disk could fill up with images in a few minutes
-// 
+//
 //
 // press the 'G' key to save frames in TGA pictures in 'saved' folder
 //
 void saveScreenshots(){
-   frameNum++;
-   if (keyPressed) {
+  frameNum++;
+  if (keyPressed) {
     if (key == 'g' || key == 'G') {
       if(frameNum%2==0){
         saveFrame("saved/frame-####.tga");
       }
     }
-  } 
+  }
 }
-      
-   
