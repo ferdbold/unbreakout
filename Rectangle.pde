@@ -57,7 +57,7 @@ public class Rectangle {
   }
 
   // COLLISION DETECTION FUNCTIONS
-  boolean doesPointTouchMe (int PX, int PY) {
+  boolean doesPointTouchMe(int PX, int PY) {
     boolean result = false;
     if (PX >= x1 && PX <= x2) {
       if (PY >= y1 && PY <= y2) {
@@ -68,7 +68,7 @@ public class Rectangle {
     return result;
   }
 
-  int whatSideDoesLineTouch (Line2D LINE, int VELX, int VELY) {
+  int whatSideDoesLineTouch(Line2D LINE, int VELX, int VELY) {
     Line2D side;
     // top (1) / bottom (3)
     if (VELY>0) {

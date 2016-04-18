@@ -102,17 +102,17 @@ public class Ball {
         y = R.y1-height;
         // right
       }
-      else if(result==2) {
+      else if (result==2) {
         velX = -velX;
         x = R.x2;
         // bottom
       }
-      else if(result==3) {
+      else if (result==3) {
         velY = -velY;
         y = R.y2;
         // left
       }
-      else if(result==4) {
+      else if (result==4) {
         velX = -velX;
         x = R.x1-width;
       }

@@ -30,14 +30,14 @@ public class Brick {
     else {
       if (respawns) {
         frame++;
-        if(frame>timeToRespawn) {
+        if (frame>timeToRespawn) {
           // rise up from your grave, brick
-          imAlive=true;
+          imAlive = true;
         }
       }
     }
   }
-  
+
   void die() {
     imAlive = false;
     frame = 0;

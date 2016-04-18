@@ -76,8 +76,7 @@ void createBricks(){
   color brickFill = #ff0000;
   int yBricks = 50;
   color[] rowsColors = {#ff00ff, #ff0000, #ff9900, #ffff00, #00ff00, #00ffff};
-  //
-  //
+
   // CREATE BRICKS --
   bricks = new Brick[numberOfBricks];
   for (int i=0; i<numberOfBricks; i++){
@@ -96,22 +95,24 @@ void createBricks(){
 
 void refreshScreen() {
   // BACKGROUND
-  if(backgroundRefreshes){
+  if (backgroundRefreshes) {
     background(backgroundColor);
   }
+
   // GAME FRAME
-  if(gameFrameRefreshes){
+  if (gameFrameRefreshes) {
     gameFrame.drawYourself();
   }
+
   // PADDLE
   paddle.refresh();
 
   // BRICKS
-  for (int i=0; i<bricks.length; i++){
+  for (int i=0; i<bricks.length; i++) {
     bricks[i].refresh();
   }
   // BALLS
-  for (int i=0; i<balls.length; i++){
+  for (int i=0; i<balls.length; i++) {
     balls[i].refresh();
   }
 }
@@ -126,7 +127,7 @@ void saveScreenshots(){
   frameNum++;
   if (keyPressed) {
     if (key == 'g' || key == 'G') {
-      if(frameNum%2==0){
+      if (frameNum%2==0) {
         saveFrame("saved/frame-####.tga");
       }
     }
