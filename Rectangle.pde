@@ -15,6 +15,8 @@ public class Rectangle {
   color fillColor;
   color opacity;
 
+  int[] fillColorValues;
+
   int x1;
   int y1;
   int x2;
@@ -26,7 +28,9 @@ public class Rectangle {
     hasStroke = HASSTROKE;
     strokeColor = STROKE;
     hasFill = HASFILL;
-    fillColor = FILL;
+
+    fillColorValues = new int[] { int(random(0, 255)), int(random(0, 255)), int(random(0, 255)) };
+    fillColor = color(fillColorValues[0], fillColorValues[1], fillColorValues[2]);
 
     opacity = 255;
   }
@@ -48,6 +52,11 @@ public class Rectangle {
     }
     // fill
     if (hasFill) {
+      for (int i = 0; i < fillColorValues.length; i++) {
+        fillColorValues[i] = constrain(fillColorValues[i] + int(random(-2, 2)), 0, 255);
+      }
+
+      fillColor = color(fillColorValues[0], fillColorValues[1], fillColorValues[2]);
       fill(fillColor, opacity);
     }
     else {

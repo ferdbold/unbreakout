@@ -9,12 +9,13 @@ public class Paddle {
   boolean hasStroke = false;
   color strokeColor = #FFFFFF;
   boolean hasFill = true;
-  color fillColor = #ffffff;
+  color fillColor;
 
   int x = gameFrameWidth/2;
   int y = 270;
 
   Paddle() {
+    fillColor = color(random(255), random(255), random(255));
     rectangle = new Rectangle(width, height, hasStroke, strokeColor, hasFill, fillColor);
     rectangle.setPosition(x, y);
   }

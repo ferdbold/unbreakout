@@ -14,8 +14,8 @@ int frameNum = 0;
 // SCREEN PROPERTIES --
 int displayWidth = 400;
 int displayHeight = 400;
-color backgroundColor = #303030;
-boolean backgroundRefreshes = false;
+int[] backgroundColor;
+boolean backgroundRefreshes = true;
 
 // GAME FRAME PROPERTIES
 int gameFrameWidth = 300;
@@ -31,8 +31,10 @@ int recY = (displayHeight-gameFrameHeight)/2;
 
 // SETUP FUNCTION --
 void setup() {
+  backgroundColor = new int[] { 0, 15, 30 };
+
   size(displayWidth,displayHeight,P3D);
-  background(backgroundColor);
+  background(color(backgroundColor[0], backgroundColor[1], backgroundColor[2]));
   frameRate(60);
 
   // create objects
@@ -107,7 +109,10 @@ void createBricks(){
 void refreshScreen() {
   // BACKGROUND
   if (backgroundRefreshes) {
-    background(backgroundColor);
+    for (int i = 0; i < backgroundColor.length; i++) {
+      backgroundColor[i] = constrain(backgroundColor[i] + int(random(-1, 1)), 0, 255);
+    }
+    background(color(backgroundColor[0], backgroundColor[1], backgroundColor[2]));
   }
 
   // GAME FRAME
