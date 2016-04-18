@@ -6,7 +6,7 @@
 
 Rectangle gameFrame;
 Brick[] bricks;
-Paddle paddle;
+Paddle[] paddles;
 Ball[] balls;
 
 int frameNum = 0;
@@ -40,8 +40,12 @@ void setup() {
   gameFrame.opacity = opacityOfRefresh;
   createBricks();
   createBalls();
-  paddle = new Paddle();
-  //
+  paddles = new Paddle[] {
+    new Paddle(),
+    new ReversePaddle(),
+    new VerticalPaddle()
+  };
+
   refreshScreen();
 }
 
@@ -105,7 +109,9 @@ void refreshScreen() {
   }
 
   // PADDLE
-  paddle.refresh();
+  for (int i = 0; i < paddles.length; i++) {
+    paddles[i].refresh();
+  }
 
   // BRICKS
   for (int i=0; i<bricks.length; i++) {

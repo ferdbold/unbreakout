@@ -13,7 +13,7 @@ public class Paddle {
 
   int x = gameFrameWidth/2;
   int y = 270;
-  
+
   Paddle() {
     rectangle = new Rectangle(width, height, hasStroke, strokeColor, hasFill, fillColor);
     rectangle.setPosition(x, y);

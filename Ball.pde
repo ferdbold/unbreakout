@@ -56,11 +56,19 @@ public class Ball {
     ycentre = y+height/2;
 
     // collision with paddle
-    int result = checkCollisionWithRectangle(paddle.rectangle);
+    int result = 0;
+    int lastPaddleCollided = 0;
+    for (int i = 0; i < paddles.length; i++) {
+      int newResult = checkCollisionWithRectangle(paddles[i].rectangle);
+      if (newResult > result) {
+        result = newResult;
+        lastPaddleCollided = i;
+      }
+    }
 
     // if collides on top, control direction of ball
     if (result == 1) {
-      if (xcentre < paddle.rectangle.x1+paddle.rectangle.width/2) {
+      if (xcentre < paddles[lastPaddleCollided].rectangle.x1+paddles[lastPaddleCollided].rectangle.width/2) {
         if (velX>0) {
           velX = -velX;
         }
