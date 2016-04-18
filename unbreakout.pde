@@ -43,7 +43,14 @@ void setup() {
   paddles = new Paddle[] {
     new ReversePaddle(),
     new HorizontalPaddle(),
-    new VerticalPaddle()
+    new VerticalPaddle(),
+    new MovingPaddle(20, 20),
+    new MovingPaddle(45, 102),
+    new MovingPaddle(100, 50),
+    new MovingPaddle(110, 60),
+    new MovingPaddle(gameFrameWidth-30, 15),
+    new MovingPaddle(gameFrameWidth-60, 65),
+    new MovingPaddle(gameFrameWidth-85, 32)
   };
 
   refreshScreen();
@@ -70,7 +77,7 @@ void createBalls(){
 
 void createBricks(){
   // BRICK GROUP PROPERTIES --
-  int numberOfBricks = 60;
+  int numberOfBricks = 0;
   int bricksPerRow = 10;
   int brickWidth = gameFrameWidth/bricksPerRow;
   int brickHeight = 10;

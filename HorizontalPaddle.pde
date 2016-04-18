@@ -2,7 +2,6 @@
 // This paddle is fixed horizontally
 
 public class HorizontalPaddle extends Paddle {
-
   HorizontalPaddle() {
     super();
     y = gameFrameHeight/2;
